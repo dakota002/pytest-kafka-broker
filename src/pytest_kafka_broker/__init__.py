@@ -1,5 +1,6 @@
 import asyncio
 import subprocess
+from collections.abc import AsyncGenerator
 from dataclasses import dataclass
 from pathlib import Path
 from tarfile import TarFile
@@ -24,7 +25,7 @@ SCALA_VERSION = "2.13"
 KAFKA_VERSION = "4.1.1"
 
 
-async def wait_port(port: int, timeout: float = 0.25):
+async def wait_port(port: int, timeout: float = 0.25) -> None:
     """Wait until a connection is detected listening on the given port."""
     while True:
         try:
@@ -83,7 +84,7 @@ class KafkaBrokerContext:
     bootstrap_server: str
     """Kafka bootstrap server in the form :samp:`{host}:{port}`."""
 
-    def config(self, config: dict | None = None):
+    def config(self, config: dict | None = None) -> dict:
         return {**(config or {}), "bootstrap.servers": self.bootstrap_server}
 
     def producer(self, config: dict | None = None) -> Producer:
@@ -113,13 +114,10 @@ del _doc
 
 
 @pytest_asyncio.fixture
-async def kafka_broker(kafka_home, tmp_path, unused_tcp_port_factory):
-    """Pytest fixture to run a local, temporary Kafka broker.
-
-    Returns
-    -------
-    : KafkaBrokerContext
-    """
+async def kafka_broker(
+    kafka_home, tmp_path, unused_tcp_port_factory
+) -> AsyncGenerator[KafkaBrokerContext]:
+    """Pytest fixture to run a local, temporary Kafka broker."""
     kafka_storage = kafka_home / "bin" / "kafka-storage.sh"
     kafka_server_start = kafka_home / "bin" / "kafka-server-start.sh"
     config_path = tmp_path / "server.properties"
