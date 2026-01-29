@@ -35,3 +35,5 @@ docs = [
 [project.urls]
 source = "https://git.ligo.org/ultra-swift/pytest-kafka-broker"
 documentation = "https://pytest-kafka-broker.readthedocs.io/"
+
+[tool.setuptools_scm]
