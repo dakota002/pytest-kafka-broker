@@ -14,6 +14,7 @@ dynamic = ["version"]
 requires-python = ">=3.11"
 dependencies = [
     "astropy",
+    "confluent-kafka",
     "rich",
     "pytest-asyncio",
 ]
