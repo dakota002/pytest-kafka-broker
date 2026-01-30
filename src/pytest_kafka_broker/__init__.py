@@ -186,5 +186,8 @@ async def kafka_broker(
         yield KafkaBrokerContext(f"127.0.0.1:{plaintext_port}")
     finally:
         with Status("Stopping Kafka broker"):
-            process.terminate()
+            try:
+                process.terminate()
+            except ProcessLookupError:
+                pass  # Process has already terminated
             await exited
