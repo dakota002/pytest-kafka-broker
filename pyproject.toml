@@ -24,7 +24,7 @@ classifiers = [
 ]
 
 [project.entry-points.pytest11]
-kafka_broker = "pytest_kafka_broker"
+kafka_broker = "pytest_kafka_broker.plugin"
 
 [project.optional-dependencies]
 docs = [
@@ -50,3 +50,8 @@ exclude = [
 exclude_gitignore = true
 
 [tool.setuptools_scm]
+
+[tool.pytest]
+kafka_broker_extra_config = [
+    "message.max.bytes = 123456",
+]
