@@ -29,7 +29,11 @@ class KafkaBrokerContext:
     """Kafka bootstrap server in the form :samp:`{host}:{port}`."""
 
     def config(self, config: dict | None = None) -> dict:
-        return {**(config or {}), "bootstrap.servers": self.bootstrap_server}
+        return {
+            **(config or {}),
+            "bootstrap.servers": self.bootstrap_server,
+            "security.protocol": "PLAINTEXT",
+        }
 
     def admin(self, config: dict | None = None) -> AdminClient:
         return AdminClient(self.config(config))
