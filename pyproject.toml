@@ -20,6 +20,10 @@ dependencies = [
 ]
 classifiers = [
     "Framework :: Pytest",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Unix",
     "Topic :: System :: Networking",
 ]
 
