@@ -1,6 +1,7 @@
 __pycache__
 _build
 .coverage
+.vscode
 *.egg-info
 api
 build
