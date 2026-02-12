@@ -91,7 +91,7 @@ def find_unused_tcp_port():
 
 @pytest_asyncio.fixture
 async def kafka_broker(
-    kafka_home, tmp_path, find_unused_tcp_port, pytestconfig
+    kafka_home: Path, tmp_path: Path, find_unused_tcp_port, pytestconfig: pytest.Config
 ) -> AsyncGenerator[KafkaBrokerContext]:
     """Pytest fixture to run a local, temporary Kafka broker."""
     kafka_storage = kafka_home / "bin" / "kafka-storage.sh"
