@@ -5,3 +5,15 @@
 [![Documentation status](https://readthedocs.org/projects/pytest-kafka-broker/badge/?version=latest)](https://pytest-kafka-broker.readthedocs.io/en/latest/?badge=latest)
 
 A Pytest plugin to run a single-broker Kafka cluster.
+
+## Installation
+
+Run this command to install the Python package:
+
+    pip install pytest-kafka-broker
+
+The only other dependency is Java. You must have a Java virtual machine installed.
+
+## Usage
+
+See [documentation](https://pytest-kafka-broker.readthedocs.io/).
