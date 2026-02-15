@@ -138,6 +138,12 @@ htmlhelp_basename = project + "doc"
 # Prefixes that are ignored for sorting the Python module index
 modindex_common_prefix = ["pytest_kafka_broker."]
 
+html_theme_options.update(  # noqa: F405
+    {
+        "github_url": project_metadata["urls"]["github"],
+    }
+)
+
 html_context = {
     "default_mode": "light",
     "to_be_indexed": ["stable", "latest"],
