@@ -136,7 +136,7 @@ html_static_path = ["_static"]
 htmlhelp_basename = project + "doc"
 
 # Prefixes that are ignored for sorting the Python module index
-modindex_common_prefix = ["shigawire."]
+modindex_common_prefix = ["pytest_kafka_broker."]
 
 html_context = {
     "default_mode": "light",
